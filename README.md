@@ -1,12 +1,12 @@
-# 🚀 Langfuse + AWS LocalStack (Observabilidad LLM con IaC)
+#  Langfuse + AWS LocalStack (Observabilidad LLM con IaC)
 
 Este proyecto despliega un entorno de **observabilidad para modelos de lenguaje (LLM)** utilizando **Langfuse**, simulando una infraestructura de nube real de AWS de forma local.
 
 ---
 
-## 🧐 ¿Por qué esta Arquitectura?
+##  ¿Por qué esta Arquitectura?
 
-El objetivo de este proyecto es demostrar cómo integrar herramientas de MLOps y DevOps para crear un flujo de trabajo profesional, reproducible y de bajo costo.
+El objetivo de este proyecto es demostrar cómo utilizar monitoreo combinando DevOps e MLops.
 
 ### Problemas que resuelve:
 1.  **Costos en la Nube:** Al usar **LocalStack**, simulamos servicios de AWS (S3, IAM) localmente sin gastar un centavo en infraestructura real durante el desarrollo.
@@ -35,7 +35,7 @@ El objetivo de este proyecto es demostrar cómo integrar herramientas de MLOps y
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
+## Cómo Ejecutar el Proyecto
 
 ### Requisitos:
 -   Docker y Docker Compose.
