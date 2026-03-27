@@ -24,7 +24,7 @@ resource "aws_iam_policy" "langsfuse_s3_policy" {
 
 resource "aws_iam_role" "langsfuse_app_role" {
   name        = "langsfuse-app-role"
-  description = "Rol de confianza para la aplicacion langsfuse"
+  description = "Rol para  la aplicacion langsfuse"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
