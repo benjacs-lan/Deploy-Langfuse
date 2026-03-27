@@ -1,0 +1,27 @@
+# Environment files
+.env
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*.tfvars.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# LocalStack / Other
+.localstack/
+.DS_Store

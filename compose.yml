@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # DB
+  db:
+    image: postgres:15
+    container_name: langfuse-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=langfuse
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  # AWS (simulado)
+  localstack:
+    image: localstack/localstack:latest
+    container_name: langfuse-localstack
+    ports:
+      - "4566:4566" 
+      - "4510-4559:4510-4559" 
+    environment:
+      - SERVICES=s3,iam,sts
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - localstack_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh
+  
+  # langfuse
+  langfuse:
+    image: langfuse/langfuse:2
+    container_name: langfuse-app
+    depends_on:
+      db:
+        condition: service_healthy
+      localstack:
+        condition: service_started
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
+  localstack_data:
